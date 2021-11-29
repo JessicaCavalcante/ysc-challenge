@@ -1,36 +1,39 @@
 (ns credit_card.logic.logic
   (:require [credit_card.db.order :as db.order]))
 
-(defn price-order
-  [[chave valor]]
-  (:price valor))
 
-(defn sum-prices
-  [pedido]
-  (->> pedido
-       (map :info)
-       :price
+(defn sum-total
+  [details]
+  (->> details
+       (map :price)
        (reduce +)
-       ;(map price-order)
-       ;(map :price)
-       println))
+       ))
 
-(defn total-purchase-card
-  [[card-id orders]]
-  {
-   :card-id card-id
-   :total-purchase-card (count orders)
-   :total-price (sum-prices orders)})
+(defn total-expenses-by-category
+  [[category expenses]]
+  {:category category
+   :total-expended (sum-total expenses)})
+
+(defn expenses-by-category
+  [expenses]
+  (->> expenses
+       (map :info)
+       (group-by :category)
+       (map total-expenses-by-category)))
+
+
+(defn total-category-by-card-id
+  [[card-id expends]]
+  {:card_id card-id
+   :expenses-by-category (expenses-by-category expends)})
+
 
 (->> (db.order/all-orders)
-     (group-by :card_id)
-     (map total-purchase-card)
+     (group-by :card-id)
+     (map total-category-by-card-id)
      println)
 
-(->> (db.order/all-orders)
-     (group-by :card_id)
-     vals
-     println)
+
 
 
 

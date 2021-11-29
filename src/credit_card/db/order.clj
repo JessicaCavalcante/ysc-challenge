@@ -56,56 +56,56 @@
 ;                    :category "clothes"
 ;                    :card_id 4}})
 
-(def order1 {:card_id 1
+(def order1 {:card-id 1
              :info {:price 20
                     :establishment "Ifood"
                     :date "25/11/2021"
                     :category "food"
                     }})
 
-(def order2 {:card_id 2
+(def order2 {:card-id 2
              :info {:price 80
                     :establishment "Uber"
                     :date "24/11/2021"
                     :category "transport"
                     }})
 
-(def order3 {:card_id 3
+(def order3 {:card-id 3
              :info {:price 200
                     :establishment "Marisa"
                     :date "20/11/2021"
                     :category "clothes"
                     }})
 
-(def order4 {:card_id 4
+(def order4 {:card-id 4
              :info {:price 150
                     :establishment "Dafiti"
                     :date "22/11/2021"
                     :category "clothes"
                     }})
 
-(def order5 {:card_id 1
+(def order5 {:card-id 1
              :info {:price 40
                     :establishment "99"
                     :date "20/11/2021"
                     :category "transport"
                     }})
 
-(def order6 {:card_id 2
+(def order6 {:card-id 2
              :info {:price 20
                     :establishment "Uber"
                     :date "10/11/2021"
                     :category "transport"
                     }})
 
-(def order7 {:card_id 3
+(def order7 {:card-id 3
              :info {:price 20
                     :establishment "UberEats"
                     :date "10/11/2021"
                     :category "food"
                     }})
 
-(def order8 {:card_id 4
+(def order8 {:card-id 4
              :info {:price 20
                     :establishment "CEA"
                     :date "10/11/2021"
