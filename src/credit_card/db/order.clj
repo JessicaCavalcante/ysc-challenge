@@ -7,6 +7,7 @@
 
 (def order1 {:card-id 1
              :info {:price 20
+                    :qtd 2
                     :establishment "Ifood"
                     :date (f/unparse custom-formatter (t/date-time 2021 11 3))
                     :category "food"
@@ -63,6 +64,3 @@
 
 (defn all-orders []
   [order1, order2, order3, order4, order5, order6, order7, order8])
-
-;(println (:date (:info order1)))
-;(println order1)

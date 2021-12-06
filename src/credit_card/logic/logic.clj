@@ -1,5 +1,6 @@
 (ns credit_card.logic.logic
-  (:require [credit_card.db.order :as db.order]))
+  (:require [credit_card.db.order :as db.order])
+  (:require [schema.core :as s]))
 
 
 (defn sum-total
@@ -11,8 +12,8 @@
 
 (defn total-expenses-by-category
   [[category expenses]]
-  {:category category
-   :total-expended (sum-total expenses)})
+  {:category       category
+   :total-expenses (sum-total expenses)})
 
 (defn expenses-by-category
   [expenses]
@@ -23,15 +24,57 @@
 
 
 (defn total-category-by-card-id
-  [[card-id expends]]
-  {:card_id card-id
-   :expenses-by-category (expenses-by-category expends)})
+  [[card-id expenses]]
+  {:card_id              card-id
+   :expenses-by-category (expenses-by-category expenses)})
 
 
 (->> (db.order/all-orders)
      (group-by :card-id)
      (map total-category-by-card-id)
-     println)
+     println
+     )
+
+(defn list-orders-by-card-id
+  [orders]
+  (->> orders
+      (group-by :card-id))
+  )
+
+(println (list-orders-by-card-id (db.order/all-orders)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

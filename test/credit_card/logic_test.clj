@@ -16,7 +16,7 @@
 
 (deftest total-expenses-by-category-test
 
-  (testing "testing total expenses byn category"
+  (testing "Testing total expenses byn category"
     (let [expenses ["food" [{:price 20, :category "food"}, {:price 40, :category "food"}]]]
     (is (= {:category "food", :total-expenses 60}
            (total-expenses-by-category expenses))))))
